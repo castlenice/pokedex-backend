@@ -1,6 +1,5 @@
 import "dotenv/config.js";
 import express from "express";
-import users from "./routes/users.js";
 import cors from "cors";
 import pokedex from "./data/pokedex.js";
 
@@ -18,7 +17,7 @@ app.get("/pokedex", (req, res) => {
   res.send(pokedex);
 });
 
-app.get("/pokedex/:id", async (req, res) => {
+app.get("/pokedex/:id", (req, res) => {
   const query = req.query.query
   //console.log(query);
   const findpoke = pokedex.find((poke) => poke.id == req.params.id);
